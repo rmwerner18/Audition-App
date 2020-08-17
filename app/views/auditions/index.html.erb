@@ -1,0 +1,7 @@
+<% @auditions.each do |audition| %>
+    <%= audition.event.title %><br>
+    <%= audition.actor.name %><br>
+    <%= audition.time.strftime("%I:%M %p")  %><br>
+    <%= audition.event.location  %><br>
+    <br>
+<% end %>

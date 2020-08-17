@@ -1,4 +1,9 @@
 <% @events.each do |event| %>
+<<<<<<< HEAD
     <%= link_to event.title, event_path(event) %><br>
     <%= event.casting_agent.name %><br>
+=======
+    <%= event.title %><br>
+    <%= event.date %><br>
+>>>>>>> fec391bfb6a61cfb88465c40d547cc8f5b2b64a9
 <% end %>
