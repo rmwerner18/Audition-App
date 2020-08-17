@@ -1,0 +1,6 @@
+<%= @actor.name %>
+<%= @actor.sex %>
+<%= actor.age %>
+<% @actor.auditions.each do |audition| %>
+    <%= link_to audition.event, event_path(event) %>
+<% end %>
