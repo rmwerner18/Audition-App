@@ -1,0 +1,5 @@
+<%= @casting_agent.name %>
+<%= @casting_agent.agency %>
+<% @casting_agent.events.each do |event| %>
+    <%= link_to event.title, event_path(event) %>
+<% end %>
