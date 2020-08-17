@@ -1,0 +1,9 @@
+<%= form_for @audition do |f| %>
+    <%= f.label :time %>
+    <%= f.time_select :time, :ampm => true, :minute_step => 15 %><br>
+    <%= f.label :actor %>
+    <%= f.collection_select :actor_id, Actor.all, :id, :name %><br>
+    <%= f.label :event_id %>
+    <%= f.collection_select :event_id, Event.all, :id, :title %><br>
+    <%= f.submit %><br>
+<% end %>
