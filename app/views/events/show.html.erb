@@ -1,0 +1,6 @@
+<h1><%= @event.title %></h1>
+<h4>Date: <%= @event.date %></h4><br>
+<%= @event.location %><br>
+<%= @event.production_type %>
+<hr>
+<%= button_to "Delete Event", event_path(@event), method: :delete, data: { confirm: "Are you sure you want to delete #{@event.title} on #{@event.date}?" } %>
