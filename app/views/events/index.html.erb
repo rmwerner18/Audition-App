@@ -1,4 +1,4 @@
 <% @events.each do |event| %>
-    <%= event.name %><br>
-    <%= event.agency %><br>
+    <%= link_to event.title, event_path(event) %><br>
+    <%= event.casting_agent.name %><br>
 <% end %>
