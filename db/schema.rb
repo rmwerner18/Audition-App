@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_08_17_150717) do
+ActiveRecord::Schema.define(version: 2020_08_17_155944) do
 
   create_table "actors", force: :cascade do |t|
     t.string "name"
@@ -39,10 +39,10 @@ ActiveRecord::Schema.define(version: 2020_08_17_150717) do
     t.string "title"
     t.date "date"
     t.string "location"
-    t.string "type"
     t.integer "casting_agent_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "production_type"
   end
 
 end

@@ -1,0 +1,13 @@
+<%= form_for @event do |f| %>
+    <%= f.label :casting_agent %>
+    <%= f.collection_select :casting_agent_id, CastingAgent.all, :id, :name %><br>
+    <%= f.label :title %>
+    <%= f.text_field :title %><br>
+    <%= f.label :date %>
+    <%= f.text_field :date %><br>
+    <%= f.label :location %>
+    <%= f.text_field :location %><br>
+    <%= f.label :production_type %>
+    <%= f.text_field :production_type %><br>
+    <%= f.submit %>
+<% end %>
