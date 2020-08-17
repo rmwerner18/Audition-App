@@ -22,7 +22,7 @@ class CastingAgentsController < ApplicationController
 
     def update
         @casting_agent = CastingAgent.find(params[:id])
-        @castign_agent.update(casting_agent_params)
+        @casting_agent.update(casting_agent_params)
         redirect_to @casting_agent
     end
 
