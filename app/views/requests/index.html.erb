@@ -1,0 +1,8 @@
+<h1>Audition Requests</h1>
+<% @requests.each do |request| %>
+    Event: <%= request.event.title %><br>
+    Actor: <%= request.actor.name %><br>
+    Requested_Time: <%= request.requested_time.strftime("%I:%M %p") %><br>
+    <%= button_to "accept Request", update_request_path(request), method: :patch %><br>
+    <%= button_to "delete_request", delete_request_path(request) %><br>
+<% end %>

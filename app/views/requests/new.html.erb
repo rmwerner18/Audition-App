@@ -1,0 +1,10 @@
+<h1>Request an Audition</h1>
+<%= form_for @request do |f| %>
+    <%= f.label :actor %>
+    <%= f.collection_select :actor_id, Actor.all, :id, :name %><br>
+    <%= f.label :event %>
+    <%= f.collection_select :event_id, Event.all, :id, :title %><br>
+    <%= f.label :requested_time %>
+    <%= f.time_select :requested_time, :ampm => true, :minute_step => 15 %><br>
+    <%= f.submit %><br>
+<% end %>

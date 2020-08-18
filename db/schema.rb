@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_08_17_155944) do
+ActiveRecord::Schema.define(version: 2020_08_18_142128) do
 
   create_table "actors", force: :cascade do |t|
     t.string "name"
@@ -43,6 +43,14 @@ ActiveRecord::Schema.define(version: 2020_08_17_155944) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.string "production_type"
+  end
+
+  create_table "requests", force: :cascade do |t|
+    t.integer "actor_id"
+    t.integer "event_id"
+    t.time "requested_time"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
 end

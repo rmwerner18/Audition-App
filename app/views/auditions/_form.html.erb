@@ -1,3 +1,17 @@
+<% if @audition.errors.any? %>
+  <div id="error_explanation">
+    <h2><%= pluralize(@audition.errors.count, "error") %> prohibited this audition from being saved:</h2>
+ 
+    <ul>
+    <% @audition.errors[:time].each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+    </ul>
+  </div>
+<% end %>
+
+
+
 <%= form_for @audition do |f| %>
     <%= f.label :time %>
     <%= f.time_select :time, :ampm => true, :minute_step => 15 %><br>

@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
-  resources :auditions
+  resources :requests, except: [:destroy, :update]
+  post 'requests/:id', to: 'requests#destroy', as: 'delete_request'
+  patch 'requests/:id', to: 'requests#update', as: 'update_request'
+  resources :auditions, except: [:create]
+  post 'auditions', to: 'auditions#create', as: 'create_audition'
   resources :actors
   resources :events
   resources :casting_agents
