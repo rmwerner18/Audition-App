@@ -5,3 +5,19 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+# Actor.delete_all
+# CastingAgent.delete_all
+# Event.delete_all
+
+# 10.times do 
+#     CastingAgent.create(name: Faker::Name.name)
+# end
+
+# 10.times do 
+#     Actor.create(name: Faker::Name.name)
+# end
+
+
+10.times do 
+    Event.create(title: Faker::Music::Opera.verdi, date: Faker::Date.forward(days: 23), casting_agent_id: 2)
+end
