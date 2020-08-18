@@ -4,6 +4,7 @@ class AuditionsController < ApplicationController
     end
 
     def show
+        @audition = Audition.find(params[:id])
     end
 
     def new
@@ -11,7 +12,7 @@ class AuditionsController < ApplicationController
     end
 
     def create
-        @audition = Audition.create(audition_params)
+        @audition = Audition.new(audition_params)
         redirect_to auditions_path
     end
 
