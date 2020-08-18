@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  root to: 'pages#home'
+  devise_for :casting_agents
   resources :auditions
   resources :actors
   resources :events
