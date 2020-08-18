@@ -6,7 +6,6 @@ Rails.application.routes.draw do
   post 'auditions', to: 'auditions#create', as: 'create_audition'
   root to: 'pages#home'
   devise_for :casting_agents
-  resources :auditions
   resources :actors
   resources :events
   resources :casting_agents
