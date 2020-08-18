@@ -4,6 +4,7 @@ class AuditionsController < ApplicationController
     end
 
     def show
+        @audition = Audition.find(params[:id])
     end
 
     def new
