@@ -1,5 +1,8 @@
-<%= @casting_agent.name %>
-<%= @casting_agent.agency %>
+<h1><%= @casting_agent.name %></h1>
+Agency:<%= @casting_agent.agency %><br>
+Events:
+<ul>
 <% @casting_agent.events.each do |event| %>
-    <%= link_to event.title, event_path(event) %>
+    <li><%= link_to event.title, event_path(event) %></li>
 <% end %>
+</ul>

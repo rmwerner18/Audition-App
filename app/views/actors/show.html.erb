@@ -1,6 +1,9 @@
-<%= @actor.name %><br>
-<%= @actor.sex %><br>
-<%= @actor.age %><br>
+<h1><%= @actor.name %></h1><br>
+Sex: <%= @actor.sex %><br>
+Age: <%= @actor.age %><br>
+Auditions:
+<ul>
 <% @actor.auditions.each do |audition| %>
-    <%= link_to audition.event, event_path(event) %>
+    <li><%= link_to "Event: #{audition.event.title}, Date: #{audition.event.date}, Time: #{audition.time.strftime("%I:%M%p")}", event_path(audition.event) %></li>
 <% end %>
+</ul>
