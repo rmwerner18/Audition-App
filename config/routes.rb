@@ -15,7 +15,7 @@ Rails.application.routes.draw do
     sessions: 'actors/sessions',
     registrations: 'actors/registrations'
   }
-  devise_for :casting_agents, path: 'casting_agents', 
+  devise_for :casting_agents, path: 'casting_agents',
   controllers: {
     sessions: 'casting_agents/sessions',
     registrations: 'casting_agents/registrations'
