@@ -4,5 +4,6 @@
     Actor Name: <%= audition.actor.name %><br>
     Time: <%= audition.time.strftime("%I:%M %p")  %><br>
     Location: <%= audition.event.location  %><br>
+    <%= link_to "Edit Audition", edit_audition_path(audition) %><br>
     <br>
 <% end %>

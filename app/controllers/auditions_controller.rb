@@ -12,16 +12,8 @@ class AuditionsController < ApplicationController
     end
 
     def create
-        if flash[:event] && flash[:actor] && flash[:requested_time]
-            @audition = Audition.create(event_id: flash[:event], actor_id: flash[:actor], time: Time.parse(flash[:requested_time]).strftime("%I:%M %p"))
-        else
-            @audition = Audition.create(audition_params)
-        end
+        @audition = Audition.create(audition_params)
         if @audition.valid?
-            request = Request.find_by(actor_id: @audition.actor_id, event_id: @audition.event_id)
-            if request
-                request.delete
-            end
             redirect_to auditions_path
         else 
             render 'new'

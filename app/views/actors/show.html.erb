@@ -7,3 +7,5 @@ Auditions:
     <li><%= link_to "Event: #{audition.event.title}, Date: #{audition.event.date}, Time: #{audition.time.strftime("%I:%M%p")}", event_path(audition.event) %></li>
 <% end %>
 </ul>
+
+<%= link_to "Back to All Actors", actors_path %>

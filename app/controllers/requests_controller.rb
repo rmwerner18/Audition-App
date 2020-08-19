@@ -19,9 +19,10 @@ class RequestsController < ApplicationController
     def update
         @request = Request.find(params[:id])
         flash[:event] = @request.event
-        flash[:actor] = @request.event
+        flash[:actor] = @request.actor
         flash[:requested_time] = @request.requested_time
-        redirect_to create_audition_path
+        @request.delete
+        redirect_to new_audition_path
     end
 
     def destroy
