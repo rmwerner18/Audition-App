@@ -6,7 +6,9 @@
   <%= submit_tag("Search") %>
 <% end %>
 
+<ul>
 <% @events.each do |event| %>
-    <%= link_to event.title, event_path(event) %><br>
-    <%= event.casting_agent.name %><br>
+    <li>Title: <%= link_to event.title, event_path(event) %><br>
+    Casting Director: <%= event.casting_agent.name %><br></li>
 <% end %>
+</ul>

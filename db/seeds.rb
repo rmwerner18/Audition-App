@@ -13,9 +13,9 @@
 #     CastingAgent.create(name: Faker::Name.name)
 # end
 
-# 10.times do 
-#     Actor.create(name: Faker::Name.name)
-# end
+10.times do 
+    Actor.create(name: Faker::Name.name, sex: Faker::Gender.binary_type, age: Faker::Number.between(from: 18, to: 100))
+end
 
 # Event.delete_all
 

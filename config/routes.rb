@@ -16,5 +16,8 @@ Rails.application.routes.draw do
   devise_for :casting_agents, path: 'casting_agents', controllers: {
     sessions: 'casting_agents/sessions'
   }
+  resources :actors
+  resources :events
+  resources :casting_agents
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end

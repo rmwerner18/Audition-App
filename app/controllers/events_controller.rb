@@ -1,4 +1,6 @@
 class EventsController < ApplicationController
+    before_action :authenticate_casting_agent!, except: [:index, :show]
+
     def index
         @events = Event.search(params[:q])
     end
@@ -12,7 +14,9 @@ class EventsController < ApplicationController
     end
 
     def create
-        @event = Event.create(event_params)
+        @event = Event.new(event_params)
+        @event.casting_agent = current_casting_agent
+        @event.save
         redirect_to events_path
     end
 
