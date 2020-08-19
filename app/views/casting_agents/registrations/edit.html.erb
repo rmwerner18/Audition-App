@@ -3,9 +3,19 @@
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
   <%= render "casting_agents/shared/error_messages", resource: resource %>
 
+    <div class="field">
+    <%= f.label :name %>
+    <%= f.text_field :name, autofocus: true %><br>
+  </div>
+
+  <div class="field">
+    <%= f.label :agency %>
+    <%= f.text_field :agency %><br>
+  </div>
+  
   <div class="field">
     <%= f.label :username %>
-    <%= f.text_field :username, autofocus: true %>
+    <%= f.text_field :username %>
   </div>
   
   <div class="field">

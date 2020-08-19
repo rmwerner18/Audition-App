@@ -1,13 +1,15 @@
 Rails.application.routes.draw do
   root to: 'pages#home'
+  get 'pages/casting_agent_home', to: 'pages#casting_agent_home'
+  get 'pages/actor_home', to: 'pages#actor_home'
   resources :requests, except: [:destroy, :update]
   post 'requests/:id', to: 'requests#destroy', as: 'delete_request'
   patch 'requests/:id', to: 'requests#update', as: 'update_request'
   resources :auditions, except: [:create]
   post 'auditions', to: 'auditions#create', as: 'create_audition'
-  resources :actors
+  # resources :actors
   resources :events
-  resources :casting_agents
+  # resources :casting_agents
   devise_for :actors, path: 'actors', controllers: {
     sessions: 'actors/sessions'
   }
