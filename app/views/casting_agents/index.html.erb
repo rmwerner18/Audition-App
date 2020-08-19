@@ -1,0 +1,7 @@
+<h1>Casting Agents</h1>
+
+<% @casting_agents.each do |agent| %>
+  <ul>
+    <li><%= link_to agent.name, casting_agent_path(agent) %></li>
+  </ul>
+<% end %>

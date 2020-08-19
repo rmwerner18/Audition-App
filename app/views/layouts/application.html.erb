@@ -7,11 +7,12 @@
 
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <script src="https://kit.fontawesome.com/21aab5294e.js" crossorigin="anonymous"></script>
   </head>
 
   <body>
+  <%= render 'layouts/navbar' %>
   <%= render 'layouts/alerts' %>
-    <h1>Audition App</h1>
     <% if current_casting_agent %>
       <%= link_to 'Sign Out', destroy_casting_agent_session_path, method: :delete %>
       <%= link_to "Home", pages_casting_agent_home_path %>

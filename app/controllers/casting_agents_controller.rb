@@ -1,6 +1,6 @@
 class CastingAgentsController < ApplicationController
     def index
-
+        @casting_agents = CastingAgent.all
     end
 
     def show
