@@ -1,7 +1,5 @@
-<h1>Welcome Casting Agents!</h1>
-
 <% if current_casting_agent %>
-  <h1>Welcome <%= current_casting_agent.username %>!</h1>
+  <h1>Welcome <%= current_casting_agent.name %>!</h1>
 
 <% else %>
   <%= link_to 'Sign Up', new_casting_agent_registration_path %>
