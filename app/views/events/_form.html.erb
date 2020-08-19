@@ -1,6 +1,6 @@
 <%= form_for @event do |f| %>
     <%# f.label :casting_agent %>
-    <%# f.collection_select :casting_agent_id, CastingAgent.all, :id, :email %><br>
+    <%# f.collection_select :casting_agent_id, CastingAgent.all, :id, :email %>
     <%= f.label :title %>
     <%= f.text_field :title %><br>
     <%= f.label :date %>
@@ -9,5 +9,6 @@
     <%= f.text_field :location %><br>
     <%= f.label :production_type %>
     <%= f.text_field :production_type %><br>
+    <br>
     <%= f.submit %>
 <% end %>

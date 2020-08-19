@@ -1,10 +1,18 @@
 <h1>All Events</h1>
 
-<%= form_tag(events_path, method: "get") do %>
-  <%= label_tag(:q, "Search by Casting Agent:") %>
-  <%= text_field_tag(:q) %>
-  <%= submit_tag("Search") %>
+<%= link_to "Create New Event", new_event_path %><br>
+
+
+<br>
+
+<% if current_casting_agent %>
+    <%= form_tag(events_path, method: "get") do %>
+    <%= label_tag(:q, "Search by Casting Agent:") %>
+    <%= collection_select(:q, :id, CastingAgent.all, :id, :name, prompt: :true) %>
+    <%= submit_tag("Search") %><%= link_to "Back to All", events_path %><br>
+    <% end %>
 <% end %>
+
 
 <ul>
 <% @events.each do |event| %>

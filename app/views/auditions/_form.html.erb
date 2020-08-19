@@ -22,6 +22,6 @@
     <%= f.label :actor %>
     <%= f.collection_select :actor_id, Actor.all, :id, :name, {:selected => @audition.actor_id} %><br>
     <%= f.label :event_id %>
-    <%= f.collection_select :event_id, Event.all, :id, :title, {:selected => @audition.event_id} %><br>
+    <%= f.collection_select :event_id, current_casting_agent.events, :id, :title, {:selected => @audition.event_id} %><br>
     <%= f.submit %><br>
 <% end %>

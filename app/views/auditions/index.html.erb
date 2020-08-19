@@ -1,4 +1,13 @@
 <h1>All Auditions</h1>
+
+<% if flash[:message] %>
+    <%= flash[:message] %><br>
+    <br>
+<% end %>
+
+<%= link_to "Create New Audition", new_audition_path %><br>
+<%= link_to "See All Audition Requests", requests_path %><br>
+<br>
 <% @auditions.each do |audition| %>
     Production: <%= audition.event.title %><br>
     Actor Name: <%= audition.actor.name %><br>

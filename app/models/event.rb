@@ -6,11 +6,14 @@ class Event < ApplicationRecord
 
     def self.search(search)
         if search
-            casting_agent = CastingAgent.find(search)
-            if casting_agent
-                Event.where(casting_agent_id: casting_agent.id)
-            else 
-                Event.all
+            if search[:id].length > 0 
+            casting_agent = CastingAgent.find(search[:id])
+                if casting_agent
+                    Event.where(casting_agent_id: casting_agent.id)
+                else 
+                    Event.all
+                end
+            else Event.all
             end
         else 
             Event.all

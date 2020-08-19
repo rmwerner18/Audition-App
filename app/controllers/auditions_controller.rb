@@ -1,6 +1,7 @@
 class AuditionsController < ApplicationController
+    before_action :authenticate_casting_agent!
     def index
-        @auditions = Audition.all
+        @auditions = Audition.find_all_by_casting_agent(current_casting_agent)
     end
 
     def show
@@ -30,8 +31,11 @@ class AuditionsController < ApplicationController
         redirect_to auditions_path
     end
 
-    def delete
-
+    def destroy
+        @audition = Audition.find(params[:id])
+        @audition.delete
+        flash[:message] = "Audition has been deleted!"
+        redirect_to auditions_path
     end
 
     private

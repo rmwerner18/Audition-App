@@ -11,6 +11,17 @@
 
   <body>
   <%= render 'layouts/alerts' %>
+    <h1>Audition App</h1>
+    <% if current_casting_agent %>
+      <%= link_to 'Sign Out', destroy_casting_agent_session_path, method: :delete %>
+      <%= link_to "Home", pages_casting_agent_home_path %>
+      <%= link_to "Events", events_path %>
+      <%= link_to "Auditions", auditions_path %>
+    <% elsif current_actor %>
+      <%= link_to "Home", pages_actor_home_path %>
+      <%= link_to "Events", events_path %>
+      <%= link_to "Auditions", auditions_path %>
+    <% end %>
     <%= yield %>
   </body>
 </html>
