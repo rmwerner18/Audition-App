@@ -1,7 +1,7 @@
 <h1>Welcome Casting Agents!</h1>
 
 <% if current_casting_agent %>
-  <h1>Welcome <%= current_casting_agent.username %>!</h1>
+  <h1>Welcome <%= current_casting_agent.name %>!</h1>
   <%= link_to 'Sign Out', destroy_casting_agent_session_path, method: :delete %>
   <%= link_to "See Events", events_path %>
   <%= link_to "New Event", new_event_path %>
