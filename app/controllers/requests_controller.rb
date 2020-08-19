@@ -1,6 +1,12 @@
 class RequestsController < ApplicationController
+    before_action :authenticate!
+
     def index
-        @requests = Request.all
+        if current_casting_agent
+            @requests = Request.find_all_by_casting_agent(current_casting_agent)
+        elsif current_actor
+            @requests = Request.where(actor: current_actor)
+        end
     end
 
     def new
@@ -21,7 +27,7 @@ class RequestsController < ApplicationController
         flash[:event] = @request.event
         flash[:actor] = @request.actor
         flash[:requested_time] = @request.requested_time
-        @request.delete
+        # @request.delete
         redirect_to new_audition_path
     end
 

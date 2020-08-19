@@ -17,7 +17,12 @@ class EventsController < ApplicationController
         @event = Event.new(event_params)
         @event.casting_agent = current_casting_agent
         @event.save
-        redirect_to events_path
+        if @event.valid?
+            redirect_to events_path
+        else 
+            flash[:errors] = @event.errors.full_messages
+            redirect_to new_event_path
+        end
     end
 
     def edit

@@ -2,7 +2,6 @@
 
 <% if current_actor %>
   <h1>Welcome <%= current_actor.name %>!</h1>
-  <%= link_to 'Sign Out', destroy_actor_session_path, method: :delete %>
 <% else %>
 <%= link_to 'Sign Up', new_actor_registration_path %>
 

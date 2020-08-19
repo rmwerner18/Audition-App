@@ -1,6 +1,18 @@
+<% if flash[:errors] %>
+  <div id="error_explanation">
+    <h2><%= pluralize(flash[:errors].count, "error") %> prohibited this audition from being saved:</h2>
+ 
+    <ul>
+    <%  flash[:errors].each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+    </ul>
+  </div>
+<% end %>
+
 <%= form_for @event do |f| %>
     <%# f.label :casting_agent %>
-    <%# f.collection_select :casting_agent_id, CastingAgent.all, :id, :email %>
+    <%# f.collection_select :casting_agent_id, CastingAgent.all, :id, :email %><br>
     <%= f.label :title %>
     <%= f.text_field :title %><br>
     <%= f.label :date %>
@@ -9,6 +21,5 @@
     <%= f.text_field :location %><br>
     <%= f.label :production_type %>
     <%= f.text_field :production_type %><br>
-    <br>
     <%= f.submit %>
 <% end %>

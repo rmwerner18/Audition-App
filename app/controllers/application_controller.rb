@@ -21,4 +21,16 @@ class ApplicationController < ActionController::Base
     '/'
   end
 
+  def current_user
+    @current_user = current_casting_agent || current_actor
+  end
+
+  def authenticate!
+    if @current_user == current_casting_agent
+      :authenticate_casting_agent!
+    elsif @current_user == current_actor
+      :authenticate_actor!
+    end
+  end
+
 end

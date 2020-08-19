@@ -3,6 +3,7 @@ class Event < ApplicationRecord
     has_many :auditions
     has_many :actors, through: :auditions
     has_many :submissions
+    validates :title, presence: :true
 
     def self.search(search)
         if search

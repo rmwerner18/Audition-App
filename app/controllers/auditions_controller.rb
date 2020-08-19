@@ -1,7 +1,12 @@
 class AuditionsController < ApplicationController
-    before_action :authenticate_casting_agent!
+    before_action :authenticate!
+    
     def index
-        @auditions = Audition.find_all_by_casting_agent(current_casting_agent)
+        if current_casting_agent
+            @auditions = Audition.find_all_by_casting_agent(current_casting_agent)
+        elsif current_actor
+            @auditions = Audition.where(actor: current_actor)
+        end
     end
 
     def show
@@ -15,8 +20,12 @@ class AuditionsController < ApplicationController
     def create
         @audition = Audition.create(audition_params)
         if @audition.valid?
+            @requests = Request.where(event: @audition.event, actor: @audition.actor)
+            if @requests
+                @requests.each {|request| request.delete}
+            end
             redirect_to auditions_path
-        else 
+        else
             render 'new'
         end
     end

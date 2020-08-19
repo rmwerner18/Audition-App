@@ -16,7 +16,7 @@
 
 <ul>
 <% @events.each do |event| %>
-    <li>Title: <%= link_to event.title, event_path(event) %><br>
+    <li>Title:<%= link_to event.title, event_path(event) %><br>
     Casting Director: <%= event.casting_agent.name %><br></li>
 <% end %>
 </ul>

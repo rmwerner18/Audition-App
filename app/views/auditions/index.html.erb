@@ -1,4 +1,4 @@
-<h1>All Auditions</h1>
+<h1>Your Auditions</h1>
 
 <% if flash[:message] %>
     <%= flash[:message] %><br>
@@ -10,7 +10,11 @@
 <br>
 <% @auditions.each do |audition| %>
     Production: <%= audition.event.title %><br>
-    Actor Name: <%= audition.actor.name %><br>
+    <% if current_casting_agent %>
+        Actor Name: <%= audition.actor.name %><br>
+    <% elsif current_actor %>
+        Casting Agent: <%= audition.find_casting_agent.name %>
+    <% end %>
     Time: <%= audition.time.strftime("%I:%M %p")  %><br>
     Location: <%= audition.event.location  %><br>
     <%= link_to "Edit Audition", edit_audition_path(audition) %><br>
