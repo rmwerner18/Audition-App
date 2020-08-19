@@ -1,6 +1,6 @@
 class EventsController < ApplicationController
     def index
-        @events = Event.all
+        @events = Event.search(params[:q])
     end
 
     def show
@@ -31,10 +31,11 @@ class EventsController < ApplicationController
         redirect_to events_path
     end
 
+
     private
 
     def event_params
-        params.require(:event).permit(:title, :date, :location, :production_type, :casting_agent_id)
+        params.require(:event).permit(:title, :date, :location, :production_type, :casting_agent_id, :q)
     end
 
 end

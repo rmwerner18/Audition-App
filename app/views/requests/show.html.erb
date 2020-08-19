@@ -2,3 +2,5 @@
     Event: <%= @request.event.title %><br>
     Actor: <%= @request.actor.name %><br>
     Requested_Time: <%= @request.requested_time.strftime("%I:%M %p") %><br>
+
+    <%= link_to "See All Requests", requests_path %>

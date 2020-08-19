@@ -17,7 +17,13 @@
 #     Actor.create(name: Faker::Name.name)
 # end
 
+# Event.delete_all
 
-10.times do 
-    Event.create(title: Faker::Music::Opera.verdi, date: Faker::Date.forward(days: 23), casting_agent_id: 2)
-end
+# 10.times do 
+#     Event.create(title: Faker::Music::Opera.verdi, date: Faker::Date.forward(days: 23), casting_agent_id: 2)
+# end
+
+
+# 10.times do 
+#     Event.create(title: Faker::Music::Opera.verdi, date: Faker::Date.forward(days: 23), casting_agent_id: 3)
+# end
