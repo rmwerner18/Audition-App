@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_08_18_145039) do
+ActiveRecord::Schema.define(version: 2020_08_18_221400) do
 
   create_table "actors", force: :cascade do |t|
     t.string "name"
@@ -18,6 +18,15 @@ ActiveRecord::Schema.define(version: 2020_08_18_145039) do
     t.integer "age"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "email", default: "", null: false
+    t.string "encrypted_password", default: "", null: false
+    t.string "reset_password_token"
+    t.datetime "reset_password_sent_at"
+    t.datetime "remember_created_at"
+    t.string "username"
+    t.index ["email"], name: "index_actors_on_email", unique: true
+    t.index ["reset_password_token"], name: "index_actors_on_reset_password_token", unique: true
+    t.index ["username"], name: "index_actors_on_username", unique: true
   end
 
   create_table "auditions", force: :cascade do |t|
@@ -38,8 +47,10 @@ ActiveRecord::Schema.define(version: 2020_08_18_145039) do
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
+    t.string "username"
     t.index ["email"], name: "index_casting_agents_on_email", unique: true
     t.index ["reset_password_token"], name: "index_casting_agents_on_reset_password_token", unique: true
+    t.index ["username"], name: "index_casting_agents_on_username", unique: true
   end
 
   create_table "events", force: :cascade do |t|
