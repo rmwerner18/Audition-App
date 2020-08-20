@@ -1,6 +1,8 @@
 <h1>All Actors</h1>
 <ul>
 <% @actors.each do |actor| %>
-  <li><%= link_to actor.name, actor_path(actor) %></li>
+  <li>Profile Pic: <br>
+  <%= link_to actor.name, actor_path(actor) %><br>
+  Age: <%= actor.age %></li>
 <% end %>
 </ul>

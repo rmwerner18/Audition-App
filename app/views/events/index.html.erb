@@ -1,22 +1,27 @@
 <h1>All Events</h1>
 
-<%= link_to "Create New Event", new_event_path %><br>
+<% if current_casting_agent %>
+    <%= link_to "Create New Event", new_event_path %><br>
+<% end %>
 
 
 <br>
 
-<% if current_casting_agent %>
-    <%= form_tag(events_path, method: "get") do %>
+<%= form_tag(events_path, method: "get") do %>
     <%= label_tag(:q, "Search by Casting Agent:") %>
     <%= collection_select(:q, :id, CastingAgent.all, :id, :name, prompt: :true) %>
     <%= submit_tag("Search") %><%= link_to "Back to All", events_path %><br>
-    <% end %>
 <% end %>
+<br>
 
 
 <ul>
 <% @events.each do |event| %>
     <li>Title:<%= link_to event.title, event_path(event) %><br>
-    Casting Director: <%= event.casting_agent.name %><br></li>
+    Casting Director: <%= link_to event.casting_agent.name, casting_agent_path(event.casting_agent) %><br></li>
+    <% if current_actor %>
+        <%= link_to "Request Audition for this Event", new_request_path %><br>
+        <br>
+    <% end %>
 <% end %>
 </ul>

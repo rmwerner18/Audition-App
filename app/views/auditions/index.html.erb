@@ -5,18 +5,24 @@
     <br>
 <% end %>
 
-<%= link_to "Create New Audition", new_audition_path %><br>
-<%= link_to "See All Audition Requests", requests_path %><br>
+<% if current_casting_agent %>
+    <%= link_to "Create New Audition", new_audition_path %><br>
+    <%= link_to "See All Audition Requests", requests_path %><br>
+<% end %>
 <br>
 <% @auditions.each do |audition| %>
-    Production: <%= audition.event.title %><br>
+    Production: <%= link_to audition.event.title, event_path(audition.event) %><br>
     <% if current_casting_agent %>
         Actor Name: <%= audition.actor.name %><br>
     <% elsif current_actor %>
-        Casting Agent: <%= audition.find_casting_agent.name %>
+        Casting Agent: <%= audition.find_casting_agent.name %><br>
     <% end %>
-    Time: <%= audition.time.strftime("%I:%M %p")  %><br>
+    Date: <%= audition.formatted_date  %><br>
+    Time: <%= audition.formatted_time  %><br>
     Location: <%= audition.event.location  %><br>
-    <%= link_to "Edit Audition", edit_audition_path(audition) %><br>
+    <% if current_casting_agent %>
+        <%= link_to "Edit Audition", edit_audition_path(audition) %><br>
+    <% end %>
+    <%= link_to "Cancel Audition", delete_audition_path(audition), method: :destroy %><br>
     <br>
 <% end %>

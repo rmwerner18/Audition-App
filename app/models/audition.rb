@@ -12,4 +12,23 @@ class Audition < ApplicationRecord
     def self.find_all_by_casting_agent(casting_agent)
         Audition.all.select {|audition| audition.find_casting_agent == casting_agent}
     end
+
+    def formatted_date
+        self.event.date.strftime("%B %d, %Y")
+    end
+
+    def formatted_time
+        self.time.strftime("%I:%M %p")
+    end
+    
+    # def self.order_by_time
+    #     self.order('time ASC')
+    # end
+
+    # def self.order_by_date_and_time
+    #     Event.order('date ASC')
+    #     Event.all.map do |event| 
+    #         event.auditions.order_by_time
+    #     end
+    # end
 end

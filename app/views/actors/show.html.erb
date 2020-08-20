@@ -1,11 +1,20 @@
 <h1><%= @actor.name %></h1><br>
+Profile Pic: <br>
 Sex: <%= @actor.sex %><br>
 Age: <%= @actor.age %><br>
+About: <br>
+Past Roles: <br>
 Auditions:
 <ul>
 <% @actor.auditions.each do |audition| %>
-    <li><%= link_to "Event: #{audition.event.title}, Date: #{audition.event.date}, Time: #{audition.time.strftime("%I:%M%p")}", event_path(audition.event) %></li>
+    <li>Event: <%= link_to audition.event.title, event_path(audition.event) %><br>
+    Date: <%= audition.event.date.strftime("%B %d, %Y") %><br>
+    Time: <%= audition.time.strftime("%I:%M%p") %> </li><br>
+    <br>
 <% end %>
 </ul>
 
-<%= link_to "Back to All Actors", actors_path %>
+
+<% if current_casting_agent %>
+    <%= link_to "Back to All Actors", actors_path %>
+<% end %>
