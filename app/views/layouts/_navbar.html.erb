@@ -22,6 +22,9 @@
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
       <% if current_casting_agent %>
+       <li class="nav-item">
+          <a class="nav-link" href=<%= casting_agent_path(current_casting_agent) %>>Profile</a>
+        </li>
         <li class="nav-item">
           <a class="nav-link" href='/events'>Events</a>
         </li>
@@ -32,9 +35,15 @@
           <a class="nav-link" href='/requests'>Audition Requests</a>
         </li>
         <li class="nav-item">
+          <a class="nav-link" href='/actors'>Find Actors</a>
+        </li>
+        <li class="nav-item">
           <a class="nav-link" data-method="delete" href='/casting_agents/sign_out'>Sign Out</a>
         </li>
       <% elsif current_actor %>
+       <li class="nav-item">
+          <a class="nav-link" href=<%= actor_path(current_actor) %>>Profile</a>
+        </li>
         <li class="nav-item">
           <a class="nav-link" href='/events'>Events</a>
         </li>

@@ -43,7 +43,7 @@ class AuditionsController < ApplicationController
     def destroy
         @audition = Audition.find(params[:id])
         @audition.delete
-        flash[:message] = "Audition has been deleted!"
+        flash[:message] = "Audition has been cancelled!"
         redirect_to auditions_path
     end
 
