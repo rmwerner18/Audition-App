@@ -8,6 +8,7 @@ class AuditionsController < ApplicationController
             @auditions = Audition.order_by_time.where(actor: current_actor)
         end
         @dates = @auditions.map {|audition| audition.event.date}.uniq
+        @dates.sort
     end
 
     def show
