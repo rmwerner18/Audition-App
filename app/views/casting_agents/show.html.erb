@@ -1,9 +1,9 @@
-<div class="container">
+<div class="container" id="casting">
     <div class="row">
         <div class="col-3">
-            Profile Pic: <br></div>
-        <div class="col-9">
-            <h1><%= @casting_agent.name %></h1>
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f1/Bill_Murray-8882.jpg/1200px-Bill_Murray-8882.jpg" alt="Bill Murray" width="200" height=""><br></div>
+        <div class="col-9" id="casting">
+            <h1 id="casting"><%= @casting_agent.name %></h1>
             Agency: <%= @casting_agent.agency %><br>
         </div>
     </div>
@@ -14,7 +14,7 @@
                 <%= link_to event.title, event_path(event) %><br>
             <% end %>
         </div>
-        <div class="col-9">
+        <div class="col-9" id="casting">
             About: <br>
             <br>
         </div>

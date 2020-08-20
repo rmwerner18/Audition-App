@@ -20,4 +20,8 @@ class Event < ApplicationRecord
             Event.all
         end
     end
+
+    def formatted_date
+        self.date.strftime("%B %d, %Y")
+    end
 end

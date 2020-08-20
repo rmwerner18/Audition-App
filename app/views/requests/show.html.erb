@@ -1,6 +1,13 @@
-<h1>Request Sent</h1>
+<h1>
+    Request Sent
+</h1>
+<br>
+<div>
     Event: <%= @request.event.title %><br>
     Actor: <%= @request.actor.name %><br>
     Requested_Time: <%= @request.requested_time.strftime("%I:%M %p") %><br>
+</div>
 
+<div>
     <%= link_to "See All Requests", requests_path %>
+</div>

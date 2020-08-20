@@ -16,23 +16,25 @@
 <br>
 
 <% @count = 1 %>
-<div class = 'aud-parent '>
-    <% @dates.each do |date| %>
-        <div class="div<%= @count %>"><h3>Date: <%= date.strftime("%B %d, %Y") %></h3></div>
-        <div class="div<%= @count + 1 %>"><% @auditions.each do |audition| %>
-            <% if audition.event.date == date %>
-                Production: <%= link_to audition.event.title, event_path(audition.event) %><br>
-                <% if current_casting_agent %>
-                    Actor Name: <%= link_to audition.actor.name, actor_path(audition.actor) %><br>
-                <% elsif current_actor %>
-                    Casting Agent: <%= audition.find_casting_agent.name %><br>
-                <% end %>
-                Time: <%= audition.formatted_time  %><br>
-                Location: <%= audition.event.location  %><br>
-                <%= link_to "See Audition", audition_path(audition) %><br>
-                <br>
-            <% end%>
-        <% end %></div>
-        <% @count += 3 %>
-    <% end %>
-</div>
+<% if @auditions %>
+    <div class = 'aud-parent '>
+        <% @dates.each do |date| %>
+            <div class="div<%= @count %>"><h3>Date: <%= date.strftime("%B %d, %Y") %></h3></div>
+            <div class="div<%= @count + 1 %>"><% @auditions.each do |audition| %>
+                <% if audition.event.date == date %>
+                    Production: <%= link_to audition.event.title, event_path(audition.event) %><br>
+                    <% if current_casting_agent %>
+                        Actor Name: <%= link_to audition.actor.name, actor_path(audition.actor) %><br>
+                    <% elsif current_actor %>
+                        Casting Agent: <%= audition.find_casting_agent.name %><br>
+                    <% end %>
+                    Time: <%= audition.formatted_time  %><br>
+                    Location: <%= audition.event.location  %><br>
+                    <%= link_to "See Audition", audition_path(audition) %><br>
+                    <br>
+                <% end%>
+            <% end %></div>
+            <% @count += 3 %>
+        <% end %>
+    </div>
+<% end %>

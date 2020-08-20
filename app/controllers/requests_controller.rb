@@ -14,7 +14,9 @@ class RequestsController < ApplicationController
     end
 
     def create
-        @request = Request.create(request_params)
+        @request = Request.new(request_params)
+        @request.actor = current_actor
+        @request.save
         redirect_to request_path(@request)
     end
     

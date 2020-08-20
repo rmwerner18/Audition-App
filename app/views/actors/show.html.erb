@@ -1,20 +1,38 @@
-<h1><%= @actor.name %></h1><br>
-Profile Pic: <br>
-Sex: <%= @actor.sex %><br>
-Age: <%= @actor.age %><br>
-About: <br>
-Past Roles: <br>
-Auditions:
-<ul>
-<% @actor.auditions.each do |audition| %>
-    <li>Event: <%= link_to audition.event.title, event_path(audition.event) %><br>
-    Date: <%= audition.event.date.strftime("%B %d, %Y") %><br>
-    Time: <%= audition.time.strftime("%I:%M%p") %> </li><br>
-    <br>
-<% end %>
-</ul>
+<div class="container" id="actor">
+    <div class="row">
+        <div class="col-3">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f1/Bill_Murray-8882.jpg/1200px-Bill_Murray-8882.jpg" alt="Bill Murray" width="200" height=""><br></div>
+        <div class="col-9" id="actor">
+            <h1 id="actor">
+                <%= @actor.name %>
+            </h1>
+            <div id="actor">
+                Gender: <%= @actor.sex %><br>
+                Age: <%= @actor.age %><br>
+                Past Roles: <br>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-3">
+            <div>
+                Auditions:
+                <% @actor.auditions.each do |audition| %>
+                    Event: <%= link_to audition.event.title, event_path(audition.event) %><br>
+                    Date: <%= audition.event.date.strftime("%B %d, %Y") %><br>
+                    Time: <%= audition.time.strftime("%I:%M%p") %><br>
+                    <br>
+                <% end %>
+            </div>
+        </div>
+        <div class="col-9" id="actor">
+            About: <br>
+        </div>
+    </div>
+</div>
 
-
-<% if current_casting_agent %>
-    <%= link_to "Back to All Actors", actors_path %>
-<% end %>
+<div>
+    <% if current_casting_agent %>
+        <%= link_to "Back to All Actors", actors_path %>
+    <% end %>
+</div>
