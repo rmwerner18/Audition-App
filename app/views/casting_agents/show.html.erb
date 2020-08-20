@@ -1,12 +1,22 @@
-<h1><%= @casting_agent.name %></h1>
-Profile Pic: <br>
-Agency: <%= @casting_agent.agency %><br>
-About: <br>
-<br>
-
-Events:
-<ul>
-<% @casting_agent.events.each do |event| %>
-    <li><%= link_to event.title, event_path(event) %></li>
-<% end %>
-</ul>
+<div class="container">
+    <div class="row">
+        <div class="col-3">
+            Profile Pic: <br></div>
+        <div class="col-9">
+            <h1><%= @casting_agent.name %></h1>
+            Agency: <%= @casting_agent.agency %><br>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-3">
+            Events:<br>
+            <% @casting_agent.events.each do |event| %>
+                <%= link_to event.title, event_path(event) %><br>
+            <% end %>
+        </div>
+        <div class="col-9">
+            About: <br>
+            <br>
+        </div>
+    </div>
+</div>

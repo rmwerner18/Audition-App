@@ -1,27 +1,32 @@
 <h1>All Events</h1>
 
-<% if current_casting_agent %>
-    <%= link_to "Create New Event", new_event_path %><br>
-<% end %>
-
-
-<br>
-
-<%= form_tag(events_path, method: "get") do %>
-    <%= label_tag(:q, "Search by Casting Agent:") %>
-    <%= collection_select(:q, :id, CastingAgent.all, :id, :name, prompt: :true) %>
-    <%= submit_tag("Search") %><br>
-<% end %>
-<br>
-
-
-<ul>
-<% @events.each do |event| %>
-    <li>Title: <%= link_to event.title, event_path(event) %><br>
-    Casting Director: <%= link_to event.casting_agent.name, casting_agent_path(event.casting_agent) %><br></li>
-    <% if current_actor %>
-        <%= link_to "Request Audition for this Event", new_request_path %><br>
-        <br>
+<div>
+    <% if current_casting_agent %>
+        <%= link_to "Create New Event", new_event_path %><br>
     <% end %>
-<% end %>
-</ul>
+</div>
+
+<br>
+
+<div>
+    <%= form_tag(events_path, method: "get") do %>
+        <%= label_tag(:q, "Search by Casting Agent:") %>
+        <%= collection_select(:q, :id, CastingAgent.all, :id, :name, prompt: :true) %>
+        <%= submit_tag("Search") %><br>
+    <% end %>
+<br>
+</div>
+
+<div class="parent">
+    <% @count = 1%>
+    <% @events.each do |event| %>
+        <div class="div<%= @count %>">Title: <%= link_to event.title, event_path(event) %><br>
+        Casting Director: <%= link_to event.casting_agent.name, casting_agent_path(event.casting_agent) %><br>
+        <% if current_actor %>
+            <%= link_to "Request Audition for this Event", new_request_path %><br>
+            <br>
+        <% end %></div>
+        <% @count += 1 %>
+    <% end %>
+</div>
+
