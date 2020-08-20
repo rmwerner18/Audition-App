@@ -3,10 +3,11 @@ class AuditionsController < ApplicationController
     
     def index
         if current_casting_agent
-            @auditions = Audition.find_all_by_casting_agent(current_casting_agent)
+            @auditions = Audition.order_by_time.find_all_by_casting_agent(current_casting_agent)
         elsif current_actor
-            @auditions = Audition.where(actor: current_actor)
+            @auditions = Audition.order_by_time.where(actor: current_actor)
         end
+        @dates = @auditions.map {|audition| audition.event.date}.uniq
     end
 
     def show

@@ -21,9 +21,9 @@ class Audition < ApplicationRecord
         self.time.strftime("%I:%M %p")
     end
     
-    # def self.order_by_time
-    #     self.order('time ASC')
-    # end
+    def self.order_by_time
+        self.order('time ASC')
+    end
 
     # def self.order_by_date_and_time
     #     Event.order('date ASC')
