@@ -1,27 +1,27 @@
 <div class="container">
-  <div class="row">
+  <div class="row align-items-center">
     <div class="col">
       <h2>Log in</h2>
 
       <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-        <div class="field">
+        <div class="field form-group">
           <%= f.label :login %><br />
-          <%= f.text_field :login, autofocus: true %>
+          <%= f.text_field :login, class: "form-control", placeholder: "Username/Email", autofocus: true %>
         </div>
 
-        <div class="field">
+        <div class="field form-group">
           <%= f.label :password %><br />
-          <%= f.password_field :password, autocomplete: "current-password" %>
+          <%= f.password_field :password, autocomplete: "current-password", class: "form-control", placeholder: "Password" %>
         </div>
 
         <% if devise_mapping.rememberable? %>
-          <div class="field">
+          <div class="field form-group">
             <%= f.check_box :remember_me %>
             <%= f.label :remember_me %>
           </div>
         <% end %>
 
-        <div class="actions">
+        <div class="actions form-group">
           <%= f.submit "Log in" %>
         </div>
       <% end %>
@@ -29,6 +29,9 @@
     </div>
     <div class="col">
       <%= render "casting_agents/registrations/new"%>
+    </div>
+    <div>
+      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcTOw8PmWeCRe5gzylAMhGeo3TRfPcVYQzsxgw&usqp=CAU" class="img-fluid" alt="Responsive image">
     </div>
   </div>
 </div>
