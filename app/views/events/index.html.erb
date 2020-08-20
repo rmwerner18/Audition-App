@@ -10,14 +10,14 @@
 <%= form_tag(events_path, method: "get") do %>
     <%= label_tag(:q, "Search by Casting Agent:") %>
     <%= collection_select(:q, :id, CastingAgent.all, :id, :name, prompt: :true) %>
-    <%= submit_tag("Search") %><%= link_to "Back to All", events_path %><br>
+    <%= submit_tag("Search") %><br>
 <% end %>
 <br>
 
 
 <ul>
 <% @events.each do |event| %>
-    <li>Title:<%= link_to event.title, event_path(event) %><br>
+    <li>Title: <%= link_to event.title, event_path(event) %><br>
     Casting Director: <%= link_to event.casting_agent.name, casting_agent_path(event.casting_agent) %><br></li>
     <% if current_actor %>
         <%= link_to "Request Audition for this Event", new_request_path %><br>

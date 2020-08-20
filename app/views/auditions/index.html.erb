@@ -10,19 +10,25 @@
     <%= link_to "See All Audition Requests", requests_path %><br>
 <% end %>
 <br>
-<% @auditions.each do |audition| %>
-    Production: <%= link_to audition.event.title, event_path(audition.event) %><br>
-    <% if current_casting_agent %>
-        Actor Name: <%= audition.actor.name %><br>
-    <% elsif current_actor %>
-        Casting Agent: <%= audition.find_casting_agent.name %><br>
+
+<% @dates.each do |date| %>
+    <h3>Date: <%= date.strftime("%B %d, %Y") %></h3>
+    <% @auditions.each do |audition| %>
+        <% if audition.event.date == date %>
+            Production: <%= link_to audition.event.title, event_path(audition.event) %><br>
+            <% if current_casting_agent %>
+                Actor Name: <%= audition.actor.name %><br>
+            <% elsif current_actor %>
+                Casting Agent: <%= audition.find_casting_agent.name %><br>
+            <% end %>
+            Date: <%= audition.formatted_date  %><br>
+            Time: <%= audition.formatted_time  %><br>
+            Location: <%= audition.event.location  %><br>
+            <% if current_casting_agent %>
+                <%= link_to "Edit Audition", edit_audition_path(audition) %><br>
+            <% end %>
+            <%= link_to "Cancel Audition", delete_audition_path(audition), method: :destroy %><br>
+            <br>
+        <% end%>
     <% end %>
-    Date: <%= audition.formatted_date  %><br>
-    Time: <%= audition.formatted_time  %><br>
-    Location: <%= audition.event.location  %><br>
-    <% if current_casting_agent %>
-        <%= link_to "Edit Audition", edit_audition_path(audition) %><br>
-    <% end %>
-    <%= link_to "Cancel Audition", delete_audition_path(audition), method: :destroy %><br>
-    <br>
 <% end %>
