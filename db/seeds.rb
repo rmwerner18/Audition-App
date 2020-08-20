@@ -22,9 +22,9 @@ end
 end
 
 10.times do
-    Event.create!(title: Faker::Theatre::Musicals.title, date: Faker::Date.forward(days: 23), location: ['Pearl Studios', 'Ripley Grier', 'Shetler Studios', 'Chelsea Studios', '42nd Street Studios'].sample, casting_agent_id: CastingAgent.all.ids.sample, production_type: "Musical")
+    Event.create!(title: Faker::Theatre::Musicals.unique.title, date: Faker::Date.forward(days: 23), location: ['Pearl Studios', 'Ripley Grier', 'Shetler Studios', 'Chelsea Studios', '42nd Street Studios'].sample, casting_agent_id: CastingAgent.all.ids.sample, production_type: "Musical")
 end
 
 10.times do
-    Event.create!(title: Faker::Theatre::Plays.title, date: Faker::Date.forward(days: 23), location: ['Pearl Studios', 'Ripley Grier', 'Shetler Studios', 'Chelsea Studios', '42nd Street Studios'].sample, casting_agent_id: CastingAgent.all.ids.sample, production_type: "Play")
+    Event.create!(title: Faker::Theatre::Plays.unique.title, date: Faker::Date.forward(days: 23), location: ['Pearl Studios', 'Ripley Grier', 'Shetler Studios', 'Chelsea Studios', '42nd Street Studios'].sample, casting_agent_id: CastingAgent.all.ids.sample, production_type: "Play")
 end
