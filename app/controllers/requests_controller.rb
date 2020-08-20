@@ -27,7 +27,6 @@ class RequestsController < ApplicationController
         flash[:event] = @request.event
         flash[:actor] = @request.actor
         flash[:requested_time] = @request.requested_time
-        # @request.delete
         redirect_to new_audition_path
     end
 
