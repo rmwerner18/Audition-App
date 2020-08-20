@@ -44,4 +44,18 @@
 
 h1 {
   text-align: center;
+  font-family: 'Julius Sans One', sans-serif;
+}
+
+body {
+  font-family: 'Montserrat', sans-serif;
+}
+
+@font-face {
+  font-family: 'Showtime';
+  src: url('/assets/fonts/Showtime-R9Ke.ttf')
+}
+
+.navbar-brand {
+  font-family: 'Showtime'
 }
