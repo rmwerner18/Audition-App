@@ -4,17 +4,17 @@
   <%= render "casting_agents/shared/error_messages", resource: resource %>
 
   <div class="field">
-    <%= f.label :name %>
+    <%= f.label :name %><br>
     <%= f.text_field :name, autofocus: true %><br>
   </div>
 
   <div class="field">
-    <%= f.label :agency %>
+    <%= f.label :agency %><br>
     <%= f.text_field :agency %><br>
   </div>
 
   <div class="field">
-    <%= f.label :username %>
+    <%= f.label :username %><br>
     <%= f.text_field :username %>
   </div>
 
@@ -35,7 +35,7 @@
     <%= f.label :password_confirmation %><br />
     <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
   </div>
-
+  <br>
   <div class="actions">
     <%= f.submit "Sign up" %>
   </div>

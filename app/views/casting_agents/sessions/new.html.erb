@@ -1,6 +1,6 @@
-<div class="container">
-  <div class="row">
-    <div class="col">
+<div class="container-fluid">
+  <div class="row align-items-center mx-auto">
+    <div class="col-4">
       <h2>Log in</h2>
 
       <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
@@ -27,8 +27,11 @@
       <% end %>
       <%= render "casting_agents/shared/links" %>
     </div>
-    <div class="col">
+    <div class="col-4  pt-5">
       <%= render "casting_agents/registrations/new"%>
+    </div>
+    <div class='col-4'>
+    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcTOw8PmWeCRe5gzylAMhGeo3TRfPcVYQzsxgw&usqp=CAU" class="img-fluid" alt="Responsive image">
     </div>
   </div>
 </div>
