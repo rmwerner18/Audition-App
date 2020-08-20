@@ -14,19 +14,6 @@
   <body>
   <%= render 'layouts/navbar' %>
   <%= render 'layouts/alerts' %>
-    <% if current_casting_agent %>
-      <%= link_to 'Sign Out', destroy_casting_agent_session_path, method: :delete %>
-      <%= link_to "Home", pages_casting_agent_home_path %>
-      <%= link_to "Events", events_path %>
-      <%= link_to "Auditions", auditions_path %>
-      <%= link_to "Audition Requests", requests_path %>
-    <% elsif current_actor %>
-      <%= link_to 'Sign Out', destroy_actor_session_path, method: :delete %>
-      <%= link_to "Home", pages_actor_home_path %>
-      <%= link_to "Events", events_path %>
-      <%= link_to "Auditions", auditions_path %>
-      <%= link_to "Audition Requests", requests_path %>
-    <% end %>
     <%= yield %>
   </body>
 </html>
