@@ -13,7 +13,10 @@ class CastingAgentsController < ApplicationController
 
     def create
         @casting_agent = CastingAgent.create(casting_agent_params)
-        redirect_to @casting_agent
+        if @casting_agent.valid?
+            redirect_to @casting_agent
+        else redirect_to new_casting_agent_session_path
+        end
     end
 
     def edit
