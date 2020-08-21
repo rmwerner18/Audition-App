@@ -14,17 +14,53 @@ Actor.delete_all
 Event.delete_all
 
 10.times do 
-    CastingAgent.create!(name: Faker::Name.name, agency: Faker::Company.name, email: Faker::Internet.unique.email(name: Faker::Name.name, domain: 'example'), username: Faker::Internet.unique.username, password: 'audition', password_confirmation: 'audition', pic: Faker::LoremPixel.image(category: 'people'))
+    CastingAgent.create!(
+        name: Faker::Name.name, 
+        agency: Faker::Company.name, 
+        email: Faker::Internet.unique.email(name: Faker::Name.name, domain: 'example'), 
+        username: Faker::Internet.unique.username, 
+        password: 'audition', 
+        password_confirmation: 'audition', 
+        pic: Faker::LoremPixel.image(category: 'people'),
+        about: Faker::Lorem.paragraphs(number: 1)
+    )
 end
 
 30.times do 
-    Actor.create!(name: Faker::Name.name, sex: Faker::Gender.binary_type, age: Faker::Number.between(from: 18, to: 100), email: Faker::Internet.unique.email(name: Faker::Name.name, domain: 'example'), username: Faker::Internet.unique.username, password: 'audition', password_confirmation: 'audition', pic: Faker::LoremPixel.image(category: 'fashion'))
+    Actor.create!(
+        name: Faker::Name.name, 
+        sex: Faker::Gender.binary_type, 
+        age: Faker::Number.between(from: 18, to: 60), 
+        email: Faker::Internet.unique.email(name: Faker::Name.name, domain: 'example'), 
+        username: Faker::Internet.unique.username, 
+        password: 'audition', password_confirmation: 'audition', 
+        pic: Faker::LoremPixel.image(category: 'fashion'),
+        about: Faker::Lorem.paragraphs(number: 1),
+        past_roles: Faker::Lorem.words(number: 4)
+    )
 end
 
 10.times do
-    Event.create!(title: Faker::Theatre::Musicals.unique.title, date: Faker::Date.forward(days: 23), location: ['Pearl Studios', 'Ripley Grier', 'Shetler Studios', 'Chelsea Studios', '42nd Street Studios'].sample, casting_agent_id: CastingAgent.all.ids.sample, production_type: "Musical", pic: Faker::Fillmurray.image)
+    Event.create!(
+        title: Faker::Theatre::Musicals.unique.title, 
+        date: Faker::Date.forward(days: 23), 
+        location: ['Pearl Studios', 'Ripley Grier', 'Shetler Studios', 'Chelsea Studios', '42nd Street Studios'].sample, 
+        casting_agent_id: CastingAgent.all.ids.sample, 
+        production_type: "Musical",
+        pic: Faker::Fillmurray.image,
+        about: Faker::Lorem.paragraphs(number: 1)
+    )
 end
 
 10.times do
-    Event.create!(title: Faker::Theatre::Plays.unique.title, date: Faker::Date.forward(days: 23), location: ['Pearl Studios', 'Ripley Grier', 'Shetler Studios', 'Chelsea Studios', '42nd Street Studios'].sample, casting_agent_id: CastingAgent.all.ids.sample, production_type: "Play", pic: Faker::Fillmurray.image )
+    Event.create!(
+        title: Faker::Theatre::Plays.unique.title, 
+        date: Faker::Date.forward(days: 23), 
+        location: ['Pearl Studios', 'Ripley Grier', 'Shetler Studios', 'Chelsea Studios', '42nd Street Studios'].sample, 
+        casting_agent_id: CastingAgent.all.ids.sample, 
+        production_type: "Play", 
+        pic: Faker::Fillmurray.image,
+        about: Faker::Lorem.paragraphs(number: 1),
+        show_location: ['The Flea Theatre', "Imperial Theatre", "New York City Center", "Shea's Performing Arts Center"].sample
+    )
 end

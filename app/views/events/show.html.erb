@@ -1,17 +1,28 @@
 <h1><%= @event.title %></h1>
-<h4>Audition Date: <%= @event.date %></h4><br>
-<h4>Show Dates: </h4><br>
-Audition Location: <%= @event.location %><br>
-Show Location: <br>
-Production Type: <%= @event.production_type %>
-<hr>
-About: <br>
-<br>
-<br>
+<div class="countainer-fluid">
+    <div class="row">
+        <div class="col">
+            <h4>Audition Date: <%= @event.date %></h4><br>
+            <h4>Show Dates: <%= @event.show_dates %></h4><br>
+            Audition Location: <%= @event.location %><br>
+            Show Location: <%= @event.show_location %><br>
+            Production Type: <%= @event.production_type %>
+            <br>
+            About: <%= @event.about %><br>
+            <br>
+            <br>
+        </div>
+        <div class="col">
+            <img src="<%= @event.pic %>" alt="profile pic" width="200" height="">
+        </div>
+    </div>
+</div>
 
-<% if current_casting_agent && current_casting_agent == @event.casting_agent %>
-    <%= button_to "Edit Event", edit_event_path(@event), method: :get %>
-    <%= button_to "Delete Event", event_path(@event), method: :delete, data: { confirm: "Are you sure you want to delete #{@event.title} on #{@event.date}?" } %>
-<% elsif current_actor %>
-    <%= button_to("Request Audition", new_request_path, method: :get, :class => "btn btn-outline-primary") %>
-<% end %>
+<div>
+    <% if current_casting_agent && current_casting_agent == @event.casting_agent %>
+        <%= button_to "Edit Event", edit_event_path(@event), method: :get %>
+        <%= button_to "Delete Event", event_path(@event), method: :delete, data: { confirm: "Are you sure you want to delete #{@event.title} on #{@event.date}?" } %>
+    <% elsif current_actor %>
+        <%= button_to("Request Audition", new_request_path, method: :get, :class => "btn btn-outline-primary") %>
+    <% end %>
+</div>

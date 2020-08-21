@@ -13,7 +13,7 @@
             <div id="actor">
                 Gender: <%= @actor.sex %><br>
                 Age: <%= @actor.age %><br>
-                Past Roles: <br>
+                Past Roles: <%= @actor.past_roles %><br>
             </div>
         </div>
         <% if current_actor %>
@@ -35,7 +35,7 @@
             </div>
         </div>
         <div class="col-9" id="actor">
-            About: <br>
+            About: <%= @actor.about %><br>
         </div>
     </div>
 </div>

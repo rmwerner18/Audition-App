@@ -40,6 +40,16 @@
           <%= f.email_field :email, class: "form-control text-center", placeholder: "email@example.com", autocomplete: "email" %>
         </div>
 
+        <div class="field form-group px-5 mx-5 pb-3">
+          <%= f.label :past_roles %><br />
+          <%= f.text_area :past_roles, class: "form-control text-center", placeholder: "Past Roles" %>
+        </div>
+
+        <div class="field form-group px-5 mx-5 pb-3">
+          <%= f.label :about %><br />
+          <%= f.text_area :about, class: "form-control text-center", placeholder: "About" %>
+        </div>
+
         <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
           <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
         <% end %>
