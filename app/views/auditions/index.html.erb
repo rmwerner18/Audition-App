@@ -9,8 +9,8 @@
 
 <div>
     <% if current_casting_agent %>
-        <%= link_to "Create New Audition", new_audition_path %><br>
-        <%= link_to "See All Audition Requests", requests_path %><br>
+        <%= button_to("Create New Audition", new_audition_path, method: :get,  :class => "btn btn-outline-primary mt-5") %><br>
+        <%= button_to("See All Audition Requests", requests_path, method: :get, :class => "btn btn-outline-info") %><br>
     <% end %>
 </div>
 <br>
@@ -30,7 +30,7 @@
                     <% end %>
                     Time: <%= audition.formatted_time  %><br>
                     Location: <%= audition.event.location  %><br>
-                    <%= link_to "See Audition", audition_path(audition) %><br>
+                    <%= button_to "See Audition", audition_path(audition), method: :get, :class => "btn btn-outline-primary btn-sm" %><br>
                     <br>
                 <% end%>
             <% end %></div>

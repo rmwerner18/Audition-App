@@ -1,4 +1,4 @@
-<div class="container" id="casting">
+<div class="container mt-5" id="casting">
     <div class="row">
         <div class="col-3">
             <% if @casting_agent.pic %>
@@ -10,9 +10,9 @@
             <h1 id="casting"><%= @casting_agent.name %></h1>
             Agency: <%= @casting_agent.agency %><br>
         </div>
-        <% if current_casting_agent && current_casting_agent =%>
+        <% if current_casting_agent %>
             <div class="col-3 field form-group">
-                <%= button_to "Edit Profile", edit_casting_agent_registration_path(@casting_agent), method: :get %>
+                <%= button_to("Edit Profile", edit_casting_agent_registration_path(@casting_agent), method: :get, :class => "btn btn-outline-secondary") %>
             </div>
         <% end %>
     </div>

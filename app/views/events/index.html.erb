@@ -2,7 +2,7 @@
 
 <div>
     <% if current_casting_agent %>
-        <%= link_to "Create New Event", new_event_path %><br>
+        <%= button_to("Create New Event", new_event_path, method: :get, :class => "btn btn-outline-primary mt-5") %><br>
     <% end %>
 </div>
 
@@ -12,7 +12,7 @@
     <%= form_tag(events_path, method: "get") do %>
         <%= label_tag(:q, "Search by Casting Agent:") %>
         <%= collection_select(:q, :id, CastingAgent.all, :id, :name, prompt: :true) %>
-        <%= submit_tag("Search") %><br>
+        <%= submit_tag("Search", :class => "btn btn-outline-secondary btn-sm") %><br>
     <% end %>
 <br>
 </div>
@@ -21,7 +21,7 @@
     <% @count = 1%>
     <% @events.each do |event| %>
         <div class="div<%= @count %>">
-        <img src='<%= event.pic %>' width="200"><br>
+        <img src='<%= event.pic %>', class='mt-5'><br>
         Title: <%= link_to event.title, event_path(event) %><br>
         Casting Director: <%= link_to event.casting_agent.name, casting_agent_path(event.casting_agent) %><br>
         Audition Date: <%= event.formatted_date %><br>
