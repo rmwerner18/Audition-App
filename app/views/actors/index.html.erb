@@ -2,10 +2,10 @@
   All Actors
 </h1>
 
-<div class="parent">
+<div class="parent mt-5">
   <% @count = 1 %>
     <% @actors.each do |actor| %>
-      <div class="div<%= @count %>"><img src="<%= actor.pic %>" alt="profile pic" width="200" height=""><br>
+      <div class="div<%= @count %>"><img src="<%= actor.pic %>" alt="profile pic" class="mb-2"><br>
       <%= link_to actor.name, actor_path(actor) %><br>
       Age: <%= actor.age %><br>
       <br>
