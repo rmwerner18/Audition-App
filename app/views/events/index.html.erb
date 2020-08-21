@@ -1,4 +1,4 @@
-<h1>All Events</h1>
+<h1>Upcoming Productions</h1>
 
 <div>
     <% if current_casting_agent %>
@@ -8,20 +8,20 @@
 
 <br>
 
-<div>
-    <%= form_tag(events_path, method: "get") do %>
+<div class="container mt-5">
+    <%= form_tag(events_path, method: "get", :class => "form-inline justify-content-center") do %>
         <%= label_tag(:q, "Search by Casting Agent:") %>
-        <%= collection_select(:q, :id, CastingAgent.all, :id, :name, prompt: :true) %>
-        <%= submit_tag("Search", :class => "btn btn-outline-secondary btn-sm") %><br>
+        <%= collection_select(:q, :id, CastingAgent.all, :id, :name, { prompt: :true}, { :class => "custom-select mx-1" }) %>
+        <%= submit_tag("Search", :class => "btn btn-outline-secondary btn") %><br>
     <% end %>
 <br>
 </div>
 
-<div class="parent">
+<div class="parent mt-5">
     <% @count = 1%>
     <% @events.each do |event| %>
         <div class="div<%= @count %>">
-        <img src='<%= event.pic %>', class='mt-5'><br>
+        <img src='<%= event.pic %>', class="mb-2 pics rounded border"><br>
         Title: <%= link_to event.title, event_path(event) %><br>
         Casting Director: <%= link_to event.casting_agent.name, casting_agent_path(event.casting_agent) %><br>
         Audition Date: <%= event.formatted_date %><br>

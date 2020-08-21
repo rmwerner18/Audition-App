@@ -2,9 +2,9 @@
     <div class="row">
         <div class="col-3">
             <% if @actor.pic %>
-                <img src="<%= @actor.pic %>" alt="profile pic" width="200" height="">
+                <img src="<%= @actor.pic %>" alt="profile pic" class="pics rounded border">
             <% else %>
-                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcSZ-DmIegqV6NuZRRdNs2sxqmYI39YksNtj7Q&usqp=CAU" width="200">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcSZ-DmIegqV6NuZRRdNs2sxqmYI39YksNtj7Q&usqp=CAU" class="pics rounded border">
             <% end %><br></div>
         <div class="col-6" id="actor">
             <h1 id="actor">
@@ -42,6 +42,6 @@
 
 <div>
     <% if current_casting_agent %>
-        <%= link_to "Back to All Actors", actors_path %>
+        <%= button_to "Back to All Actors", actors_path, :class => "btn btn-outline-primary" %>
     <% end %>
 </div>
