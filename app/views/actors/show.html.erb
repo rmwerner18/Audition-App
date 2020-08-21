@@ -12,20 +12,23 @@
             </h1>
             <div id="actor">
                 Gender: <%= @actor.sex %><br>
-                Age: <%= @actor.age %><br>
-                Past Roles: <%= @actor.past_roles %><br>
+                Age: <%= @actor.age %><br><br>
+                Past Roles: 
+                <ul>
+                    <li><%= @actor.past_roles %><br></li>
+                </ul>
             </div>
         </div>
         <% if current_actor %>
             <div class="col-3 pt-5">
-                <%= button_to "Edit Profile", edit_actor_registration_path(@actor), method: :get %>
+                <%= button_to "Edit Profile", edit_actor_registration_path(@actor), method: :get, :class => "btn btn-outline-secondary" %>
             </div>
         <% end %>
     </div>
-    <div class="row">
+    <div class="row mt-4">
         <div class="col-3">
             <div>
-                Auditions:
+                Auditions:<br>
                 <% @actor.auditions.each do |audition| %>
                     Event: <%= link_to audition.event.title, event_path(audition.event) %><br>
                     Date: <%= audition.event.date.strftime("%B %d, %Y") %><br>
@@ -42,6 +45,6 @@
 
 <div>
     <% if current_casting_agent %>
-        <%= button_to "Back to All Actors", actors_path, :class => "btn btn-outline-primary" %>
+        <%= button_to "Back to All Actors", actors_path, method: :get, :class => "btn btn-outline-primary mt-5" %>
     <% end %>
 </div>

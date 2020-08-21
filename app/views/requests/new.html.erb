@@ -8,6 +8,8 @@
         <%= f.collection_select :event_id, Event.all, :id, :title %><br>
         <%= f.label :requested_time %>
         <%= f.time_select :requested_time, :ampm => true, :minute_step => 15 %><br>
-        <%= f.submit %><br>
+        <div class="actions form-group">
+            <%= f.submit "Submit Request", method: :get, :class => "btn btn-outline-primary mt-3" %>
+        </div>
     <% end %>
 </div>

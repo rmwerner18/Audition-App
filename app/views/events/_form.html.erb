@@ -29,6 +29,8 @@
       <%= f.label :pic %>
       <%= f.url_field :pic %><br>
 
-      <%= f.submit %>
+      <div class="actions form-group">
+          <%= f.submit "Submit Event", method: :get, :class => "btn btn-outline-primary mt-3" %>
+      </div>
   <% end %>
 </div>

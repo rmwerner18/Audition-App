@@ -4,7 +4,7 @@
 
 <div>
     <% if current_actor %>
-        <%= button_to("Request an Audition", new_request_path, method: :get, :class => "btn btn-outline-primary") %><br>
+        <%= button_to("Request an Audition", new_request_path, method: :get, :class => "btn btn-outline-primary mt-3") %><br>
         <br>
     <% end %>
 </div>
@@ -19,8 +19,8 @@
         <% end %>
         Requested Time: <%= request.requested_time.strftime("%I:%M %p") %><br>
         <% if current_casting_agent%>
-            <%= button_to "Accept Request", update_request_path(request), method: :patch, :class => "btn btn-outline-success" %><br>
-            <%= button_to "Delete Request", delete_request_path(request), :class => "btn btn-outline-alert" %><br>
+            <%= button_to "Accept Request", update_request_path(request), method: :patch, :class => "btn btn-outline-success mt-3" %><br>
+            <%= button_to "Delete Request", delete_request_path(request), :class => "btn btn-outline-danger" %><br>
         <% end %>
         <% if current_actor %>
             Status: Pending <br>

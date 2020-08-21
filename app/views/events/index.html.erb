@@ -23,7 +23,9 @@
         <div class="div<%= @count %>">
         <img src='<%= event.pic %>', class="mb-2 pics rounded border"><br>
         Title: <%= link_to event.title, event_path(event) %><br>
-        Casting Director: <%= link_to event.casting_agent.name, casting_agent_path(event.casting_agent) %><br>
+        <% if event.casting_agent%>
+            Casting Director: <%= link_to event.casting_agent.name, casting_agent_path(event.casting_agent) %><br>
+        <% end %>
         Audition Date: <%= event.formatted_date %><br>
         <% @count += 1 %>
         </div>

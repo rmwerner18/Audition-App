@@ -5,9 +5,9 @@
 <div>
     Event: <%= @request.event.title %><br>
     Actor: <%= @request.actor.name %><br>
-    Requested_Time: <%= @request.requested_time.strftime("%I:%M %p") %><br>
+    Requested Time: <%= @request.requested_time.strftime("%I:%M %p") %><br>
 </div>
 
 <div>
-    <%= link_to "See All Requests", requests_path %>
+    <%= button_to "See All Requests", requests_path, method: :get, :class => "btn btn-outline-primary mt-3" %>
 </div>
