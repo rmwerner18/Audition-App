@@ -7,12 +7,12 @@
   <% elsif current_actor %>
     <a class="navbar-brand" href="/pages/actor_home">
     <i class="fas fa-theater-masks"></i>
-    Audition
+    [Audition]
     </a>
   <% else %>
     <a class="navbar-brand" href="/">
     <i class="fas fa-theater-masks"></i>
-    Audition
+    [Audition]
     </a>
   <% end %>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -53,7 +53,7 @@
         <li class="nav-item">
           <a class="nav-link" href='/requests'>Audition Requests</a>
         </li>
-        <li class="nav-item">
+        <li class="nav-item justify-content-right">
           <a class="nav-link" data-method="delete" href='/casting_agents/sign_out'>Sign Out</a>
         </li>
       <% else %>

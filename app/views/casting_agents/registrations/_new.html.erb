@@ -14,7 +14,7 @@
 
   <div class="field form-group">
     <%= f.label "Headshot" %><br />
-    <%= f.email_field :pic, class: "form-control", placeholder: "Image URL" %>
+    <%= f.text_field :pic, class: "form-control", placeholder: "Image URL" %>
   </div>
 
   <div class="field form-group">
@@ -25,6 +25,7 @@
   <div class="field form-group">
     <%= f.label :email %><br />
     <%= f.email_field :email, autocomplete: "email", class: "form-control", placeholder: "email@example.com" %>
+    <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
   </div>
 
   <div class="field form-group">

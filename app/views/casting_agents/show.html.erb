@@ -6,10 +6,15 @@
             <% else %>
                 <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcSZ-DmIegqV6NuZRRdNs2sxqmYI39YksNtj7Q&usqp=CAU" width="200">
             <% end %><br></div>
-        <div class="col-9" id="casting">
+        <div class="col-6" id="casting">
             <h1 id="casting"><%= @casting_agent.name %></h1>
             Agency: <%= @casting_agent.agency %><br>
         </div>
+        <% if current_casting_agent && current_casting_agent =%>
+            <div class="col-3 field form-group">
+                <%= button_to "Edit Profile", edit_casting_agent_registration_path(@casting_agent), method: :get %>
+            </div>
+        <% end %>
     </div>
     <div class="row">
         <div class="col-3">

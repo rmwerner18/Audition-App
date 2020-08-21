@@ -73,6 +73,16 @@ class CastingAgents::RegistrationsController < Devise::RegistrationsController
     pages_casting_agent_home_path
   end
 
+  def after_update_path_for(resource)
+    pages_casting_agent_home_path
+  end
+
+  # def after_update_path_for(resource)
+  #   puts 'this is happening yoyo mama'
+  #   flash[:notice] = "Account succesfully updated"
+  #   redirect_to casting_agent_path(current_casting_agent)
+  # end
+
   # The path used after sign up for inactive accounts.
   # def after_inactive_sign_up_path_for(resource)
   #   super(resource)

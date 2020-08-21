@@ -1,8 +1,12 @@
 <div class="container" id="actor">
     <div class="row">
         <div class="col-3">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f1/Bill_Murray-8882.jpg/1200px-Bill_Murray-8882.jpg" alt="Bill Murray" width="200" height=""><br></div>
-        <div class="col-9" id="actor">
+            <% if @actor.pic %>
+                <img src="<%= @actor.pic %>" alt="profile pic" width="200" height="">
+            <% else %>
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcSZ-DmIegqV6NuZRRdNs2sxqmYI39YksNtj7Q&usqp=CAU" width="200">
+            <% end %><br></div>
+        <div class="col-6" id="actor">
             <h1 id="actor">
                 <%= @actor.name %>
             </h1>
@@ -12,6 +16,11 @@
                 Past Roles: <br>
             </div>
         </div>
+        <% if current_actor %>
+            <div class="col-3 pt-5">
+                <%= button_to "Edit Profile", edit_actor_registration_path(@actor), method: :get %>
+            </div>
+        <% end %>
     </div>
     <div class="row">
         <div class="col-3">

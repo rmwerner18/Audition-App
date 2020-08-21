@@ -25,10 +25,7 @@
         Title: <%= link_to event.title, event_path(event) %><br>
         Casting Director: <%= link_to event.casting_agent.name, casting_agent_path(event.casting_agent) %><br>
         Audition Date: <%= event.formatted_date %><br>
-        <% if current_actor %>
-            <%= link_to "Request Audition for this Event", new_request_path %><br>
-            <br>
-        <% end %></div>
         <% @count += 1 %>
+        </div>
     <% end %>
 </div>
