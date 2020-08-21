@@ -1,7 +1,16 @@
-<h1>Casting Agents</h1>
+<h1>
+  All Casting Agents
+</h1>
 
-<% @casting_agents.each do |agent| %>
-  <ul>
-    <li><%= link_to agent.name, casting_agent_path(agent) %></li>
-  </ul>
-<% end %>
+<div class="parent">
+  <% @count = 1 %>
+    <% @casting_agents.each do |agent| %>
+      <div class="div<%= @count %>"><img src="<%= agent.pic %>" alt="profile pic" width="200" height=""><br>
+      <%= link_to agent.name, casting_agent_path(agent) %><br>
+      Agency: <%= agent.agency %><br>
+      <br>
+      <% @count += 1 %>
+      </div>
+    <% end %>
+
+</div>

@@ -5,7 +5,7 @@
 <div class="parent">
   <% @count = 1 %>
     <% @actors.each do |actor| %>
-      <div class="div<%= @count %>"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f1/Bill_Murray-8882.jpg/1200px-Bill_Murray-8882.jpg" alt="profile pic" width="200" height=""><br>
+      <div class="div<%= @count %>"><img src="<%= actor.pic %>" alt="profile pic" width="200" height=""><br>
       <%= link_to actor.name, actor_path(actor) %><br>
       Age: <%= actor.age %><br>
       <br>
