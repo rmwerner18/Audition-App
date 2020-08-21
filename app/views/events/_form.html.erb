@@ -19,5 +19,7 @@
     <%= f.text_field :location %><br>
     <%= f.label :production_type %>
     <%= f.text_field :production_type %><br>
+    <%= f.label :pic %>
+    <%= f.file_field(:pic, multiple: true) %>
     <%= f.submit %>
 <% end %>

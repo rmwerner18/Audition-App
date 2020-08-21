@@ -10,5 +10,6 @@ About: <br>
 <br>
 
 <% if current_casting_agent && current_casting_agent == @event.casting_agent %>
+    <%= button_to "Edit Event", edit_event_path(@event), method: :get %>
     <%= button_to "Delete Event", event_path(@event), method: :delete, data: { confirm: "Are you sure you want to delete #{@event.title} on #{@event.date}?" } %>
 <% end %>

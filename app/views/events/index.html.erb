@@ -20,7 +20,9 @@
 <div class="parent">
     <% @count = 1%>
     <% @events.each do |event| %>
-        <div class="div<%= @count %>">Title: <%= link_to event.title, event_path(event) %><br>
+        <div class="div<%= @count %>">
+        <img src='<%= event.pic %>'><br>
+        Title: <%= link_to event.title, event_path(event) %><br>
         Casting Director: <%= link_to event.casting_agent.name, casting_agent_path(event.casting_agent) %><br>
         Audition Date: <%= event.formatted_date %><br>
         <% if current_actor %>
