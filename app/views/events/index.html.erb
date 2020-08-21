@@ -20,7 +20,9 @@
 <div class="parent">
     <% @count = 1%>
     <% @events.each do |event| %>
-        <div class="div<%= @count %>">Title: <%= link_to event.title, event_path(event) %><br>
+        <div class="div<%= @count %>">
+        <img src="https://cdn2.bigcommerce.com/server4900/364bb/products/219458/images/171169/203739__48716.1559631124.380.500.jpg?c=2" alt="profile pic" width="200" height=""><br>
+        Title: <%= link_to event.title, event_path(event) %><br>
         Casting Director: <%= link_to event.casting_agent.name, casting_agent_path(event.casting_agent) %><br>
         Audition Date: <%= event.formatted_date %><br>
         <% if current_actor %>
@@ -30,4 +32,3 @@
         <% @count += 1 %>
     <% end %>
 </div>
-

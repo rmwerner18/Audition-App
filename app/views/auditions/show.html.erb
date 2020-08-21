@@ -1,6 +1,18 @@
-<h1><%= @audition.event.title %></h1>
-<h3><%= @audition.formatted_time %></h3>
-<% if current_casting_agent %>
-    <%= link_to "Edit Audition", edit_audition_path(audition) %><br>
-<% end %>
-<%= link_to "Cancel Audition", delete_audition_path(audition), method: :destoy %><br>
+<h1>
+    <%= @audition.event.title %>
+</h1>
+<div>
+    <h3>
+        <%= @audition.formatted_time %>
+    </h3>
+    Location: <%= @audition.event.location %><br>
+    <% if current_actor %>
+        Casting Agent: <%= @audition.event.casting_agent.name %><br>
+    <% elsif current_casting_agent %>
+        Actor: <%= @audition.actor.name %><br>
+    <% end %>
+    <% if current_casting_agent %>
+        <%= link_to "Edit Audition", edit_audition_path(@audition) %><br>
+    <% end %>
+    <%= link_to "Cancel Audition", delete_audition_path(@audition), method: :destoy %><br>
+</div>
