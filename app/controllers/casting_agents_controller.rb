@@ -5,6 +5,7 @@ class CastingAgentsController < ApplicationController
 
     def show
         @casting_agent = CastingAgent.find(params[:id])
+        current_casting = @casting_agent
     end
 
     def new
