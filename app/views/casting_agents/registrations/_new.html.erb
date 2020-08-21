@@ -13,6 +13,11 @@
   </div>
 
   <div class="field form-group">
+    <%= f.label "Headshot" %><br />
+    <%= f.email_field :pic, class: "form-control", placeholder: "Image URL" %>
+  </div>
+
+  <div class="field form-group">
     <%= f.label :username %>
     <%= f.text_field :username, class: "form-control", placeholder: "Username" %>
   </div>
